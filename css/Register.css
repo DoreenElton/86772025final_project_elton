@@ -1,0 +1,93 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #e9ebee;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.logo-section {
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    flex: 0.5 auto;
+    margin-right: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    text-transform: uppercase;
+    max-width: 100%;
+    height: auto;
+    display: block; /* Adjust as per your logo */
+}
+
+.logo h2 {
+    font-size: 4rem;
+    font-weight: bold;
+    color: black;
+}
+
+.form-section {
+    flex: 1;
+    max-width: 400px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: snow;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-button:hover {
+    background-color: #FFE5B4;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

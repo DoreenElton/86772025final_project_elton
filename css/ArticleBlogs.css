@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    overflow: auto;
+}
+
+header {
+    position: relative;
+    height: 20vh;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-background {
+    background-image: url(../images/profilepg.jpeg);
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.header-content {
+    background-color: #FAF9F6;
+    padding: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 2;
+}
+
+.logo{
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.logo img {
+    max-width: 100px; 
+    margin-right: 10px;
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+}
+
+.btn{
+    padding: 15px 30px;
+    border-radius: 50px;
+    background: #FFE5B4;
+    color:#555;
+    margin-right: 10px;
+    transition: opacity .4s ease;
+}
+.btn:hover{
+    opacity: .6;
+}
+
+.search-bar {
+    position: absolute;
+    bottom: -290px; 
+    right: 55%; 
+    transform: translateX(-50%); 
+    
+}
+
+.search-bar input {
+    background-image: url(../images/search.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 40px; 
+    width: 400px; 
+    padding: 0 10px; 
+    font-size: 1rem; 
+    border: 1px solid #ddd;
+    border-right: none; 
+    border-radius: 5px;
+}
+
+.profile-pic{
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Make height equal to width for a perfect circle */
+    position: absolute;
+    top: 255%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset the image by half its width and height */
+    border-radius: 50%; /* Makes the image round */
+    border: 2px solid white; /* Optional: white border around the image */
+    z-index: 3;
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav li {
+    margin: 0 20px;
+}
+
+nav a {
+    font-size: 1.2rem;
+    color: #555; 
+}
