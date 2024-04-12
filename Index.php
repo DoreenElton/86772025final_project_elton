@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ContentCraze is the ultimate platform for creating, uploading, and interacting with various types of content such as articles, media, and art.">
     <title>Landing Page</title>
-    <link rel ="stylesheet" href="../Final Project/css/Index.css">
+    <link rel ="stylesheet" href="../86772025final_project_elton/css/Index.css">
 
 </head>
 <body>
@@ -13,20 +13,20 @@
         <div class="header-background">
                 <div class="carousel">
                     <div class="slides fade">
-                        <img src="../Final Project/images/cloud.jpeg" style="width:100%">
+                        <img src="../86772025final_project_elton/images/cloud.jpeg" style="width:100%">
                     </div>
                     <div class="slides fade">
-                        <img src="../Final Project/images/cont.jpeg" style="width:100%">
+                        <img src="../86772025final_project_elton/images/cont.jpeg" style="width:100%">
                     </div>
                     <div class="slides fade">
-                        <img src="../Final Project/images/quotes.jpeg" style="width:100%">
+                        <img src="../86772025final_project_elton/images/quotes.jpeg" style="width:100%">
                     </div>
                 </div>
             
             </div>
             <div class="header-content">
                 <div class="logo">
-                    <img src="../Final Project/images/logo2.png" alt="ContentCraze Logo">
+                    <img src="../86772025final_project_elton/images/logo2.png" alt="ContentCraze Logo">
                 <span>ContentCraze</span>
                 </div>
                 <nav>
@@ -43,8 +43,8 @@
                 </nav>
                 <a href="../Final Project/login/Login.php" class="btn">Get started</a>
                 <div class="header-buttons">
-                    <a href="../Final Project/login/Register.php" class="btn">Sign Up</a>
-                    <a href="../Final Project/login/Login.php" class="btn">Sign In</a>
+                    <a href="../86772025final_project_elton/login/Register.php" class="btn">Sign Up</a>
+                    <a href="../86772025final_project_elton/login/Login.php" class="btn">Sign In</a>
                 </div>
             </div>
         </div>    
@@ -104,6 +104,6 @@
 
 
 
-<script src="../Final Project/js/Index.js"></script>
+<script src="../86772025final_project_elton/js/Index.js"></script>
 </body>
 </html>
