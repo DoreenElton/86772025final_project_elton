@@ -1,43 +1,46 @@
 <?php
-session_start();
+session_start();  // Start or resume the session at the top of the script
+
 include '../settings/connection.php';
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query1 = "SELECT * FROM Users where email = ?";
-    $stmt = mysqli_prepare($conn, $query1);
-
+    $query = "SELECT user_id, password_hash, role_id FROM Users WHERE email = ?";
+    $stmt = $conn->prepare($query);
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "s", $email);
-        mysqli_stmt_execute($stmt);
-        
-        $result = mysqli_stmt_get_result($stmt);
-        
-        if ($result) {
-            $user = mysqli_fetch_assoc($result);
-            
-            if ($user && password_verify($password, $user['password_hash'])) {
-                
-                session_start();
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+            if (password_verify($password, $user['password_hash'])) {
+                // Correct credentials; set session variables and redirect
                 $_SESSION['user_id'] = $user['user_id'];
-                header("location:../view/HomePage.php");
+                $_SESSION['role_id'] = $user['role_id'];  // Store role ID in session
+                header("Location: ../view/HomePage.php");
                 exit();
             } else {
-                
-                header("Location: ../login/Login.php#loginsec?login=failed");
+                // Incorrect password
+                header("Location: ../login/Login.php?login=failed");
                 exit();
             }
         } else {
-            
-            header("Location: ../view/HomePage.phpp#loginsec?error=database_error");
+            // No user found
+            header("Location: ../login/Login.php?login=failed");
             exit();
         }
-        
-        mysqli_stmt_close($stmt);
-    } 
-    else {
-        echo "connection failed";
+        $stmt->close();
+    } else {
+        // SQL error
+        header("Location: ../login/Login.php?error=sqlerror");
+        exit();
     }
 }
+ else {
+    // Submit not set
+    header("Location: ../login/Login.php?error=invalidaccess");
+    exit();
+}
+?>

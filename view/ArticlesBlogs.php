@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ContentCraze | Profile Page</title>
-    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/ArticleBlogs.css">
 </head>
 <body>
     <header>
@@ -22,20 +22,59 @@
                 </ul>
             </nav>
             <a href="../login/logout.php" class="btn">Log Out</a>
-            <img src="<?php echo $userProfileImagePath; ?>" class="profile-pic" alt="Profile Image">
-            <div class="search-bar">
-                <form action="/search" method="get">
-                    <input type="text" id="search_box" name="q" placeholder="Search for people">
-                </form> 
-            </div> 
-           
-            
+
         </div>   
         
     </header>
+
+
+    <div class="container">
+
+        <div class="form-container">
+            <center><h1>Enter a New Article</h1></center>
+            <form action="../action/upload_article_action.php" method="post">
+                <div class="form-group">
+                    <label for="creator_name">Creator Name:</label>
+                    <input type="text" name="creator_name" id="creator_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                    
+                <div class="form-group">
+                    <label for="body">Body:</label>
+                    <textarea name="body" id="body" rows="10" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tags">Tags (comma separated):</label>
+                    <input type="text" name="tags" id="tags">
+                </div>
+                    
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <select name="status" id="status">
+                        <option value="published">Published</option>
+                        <option value="draft">Draft</option>
+                        <option value="archived">Archived</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Submit Article">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <footer>
+        © 2024 ContentCraze | Created by Elton Fafali Gamor
+    </footer>
+
+   
     
-
-
 
 
 

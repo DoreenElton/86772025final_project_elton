@@ -1,48 +1,35 @@
 <?php
-// Include the database connection
-require '../settings/connection.php'; // Adjust the path to where your connection.php file is located
 
-// Check if the search form was submitted
-if (isset($_GET['search_query'])) {
-    $search_query = $conn->real_escape_string(trim($_GET['search_query']));
+require_once '../settings/connection.php'; // Adjust the path as needed
 
-    // Prepare the SQL statement
-    $stmt = $conn->prepare("SELECT * FROM Content WHERE content_type = ? AND status = 'published'");
+if (isset($_GET['search_query']) && !empty($_GET['search_query'])) {
+    $searchTerm = "%{$_GET['search_query']}%";
 
-    // Bind the input parameter
-    $stmt->bind_param("s", $search_query);
+    // Adjust the query to match your database schema and requirements
+    $sql = "SELECT title, body FROM ArticlesBlogs WHERE title LIKE ? OR body LIKE ?";
 
-    // Execute the statement
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ss", $searchTerm, $searchTerm);
     $stmt->execute();
-
-    // Get the result
     $result = $stmt->get_result();
 
-    // Check if we have results
     if ($result->num_rows > 0) {
-        // Fetch all results
-        $results = $result->fetch_all(MYSQLI_ASSOC);
-        
-        // Iterate over each result and display it
-        foreach ($results as $row) {
-            $title = htmlspecialchars($row['title']);
-            $body = htmlspecialchars($row['body']);
-            $date_posted = htmlspecialchars($row['date_posted']);
-            
-            echo "<div class='content'>";
-            echo "<h2>{$title}</h2>";
-            echo "<p>{$body}</p>"; // Use nl2br() if you want to convert newlines to HTML <br> tags
-            echo "<small>Posted on: {$date_posted}</small>";
+        while ($row = $result->fetch_assoc()) {
+            // Output the response as HTML
+            echo "<div class='search-item'>";
+            echo "<h2>" . htmlspecialchars($row['title']) . "</h2>";
+            echo "<p>" . htmlspecialchars($row['body']) . "</p>";
             echo "</div>";
         }
     } else {
-        echo "<p>No results found for the specified content type.</p>";
+        echo "<div>No results found.</div>";
     }
-
-    // Close the prepared statement
+    
     $stmt->close();
+} else {
+    echo "<div>Please enter a search term.</div>";
 }
 
-// Close the database connection
 $conn->close();
+
 ?>

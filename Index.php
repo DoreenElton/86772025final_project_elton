@@ -41,7 +41,7 @@
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact Us</a></li>
                 </nav>
-                <a href="../Final Project/login/Login.php" class="btn">Get started</a>
+                <a href="../86772025final_project_elton/login/Login.php" class="btn">Get started</a>
                 <div class="header-buttons">
                     <a href="../86772025final_project_elton/login/Register.php" class="btn">Sign Up</a>
                     <a href="../86772025final_project_elton/login/Login.php" class="btn">Sign In</a>

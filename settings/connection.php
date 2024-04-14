@@ -2,7 +2,7 @@
 $db_host = 'localhost';
 $db_user = 'root';
 $db_password = '';
-$db_name = 'content_crt';
+$db_name = 'content_crz';
 
 $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
 
